@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversion Calculator</title>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center; background-color: lightblue">Conversion Calculator</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="homepage.html">HomePage</a></li>
+            <li><a href="ConversionInfo.html">ConversionPage</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="calculate won to ringgit">
+            <h2>Won to Ringgit Conversion</h2>
+            <label for="wonAmount" style="background-color: cornflowerblue">Enter Won amount:</label>
+            <input type="number" id="wonAmount" placeholder="Enter amount">
+
+            <button onclick="convertCurrency()">Convert</button>
+			<button id="resetBtn1" onclick="resetForm()">Reset</button>
+
+            <p id="resultWonToRinggit">Result: </p>
+        </section>
+		<section id="calculate ringgit to won">
+            <h2>Ringgit to Won Conversion</h2>
+            <label for="ringgitAmount" style="background-color: crimson">Enter Ringgit amount:</label>
+            <input type="number" id="ringgitAmount" placeholder="Enter amount">
+
+            <button onclick="convertCurrency()">Convert</button>
+			<button id="resetBtn2" onclick="resetForm()">Reset</button>
+
+            <p id="resultRinggitToWon">Result: </p>
+        </section>
+    </main>
+
+    <script>
+		function convertCurrency(){
+    var wonAmount = document.getElementById("wonAmount").value;
+    var ringgitAmount = document.getElementById("ringgitAmount").value;
+
+    var wonToRinggitRate = 0.0035; 
+    var ringgitToWonRate = 1 / wonToRinggitRate; 
+    
+    var resultWonToRinggit = wonAmount * wonToRinggitRate;
+    var resultRinggitToWon = ringgitAmount * ringgitToWonRate;
+    document.getElementById("resultWonToRinggit").innerText = "Result (Won to Ringgit): " + resultWonToRinggit.toFixed(2) + " Ringgit";
+    document.getElementById("resultRinggitToWon").innerText = "Result (Ringgit to Won): " + resultRinggitToWon.toFixed(2) + " Won";
+		}
+		function resetForm() {
+            document.getElementById("wonAmount").value = "";
+            document.getElementById("ringgitAmount").value = "";
+            document.getElementById("resultWonToRinggit").innerText = "Result: ";
+            document.getElementById("resultRinggitToWon").innerText = "Result: ";
+		}
+	</script>
+	
+	<footer>
+        <p>&copy; Mohammad Irfan bin Mohammad Zawawi. All rights reserved.</p>
+    </footer>
+	
+</body>
+</html>
